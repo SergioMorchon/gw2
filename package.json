@@ -3,19 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "main": "index.js",
+  "main": "dist/gw2.js",
   "scripts": {
-    "pack": "rollup js/main -o dist/gw2.js -n gw2 -c",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "rollup js/main -f umd -o dist/gw2.js -n gw2",
     "ts": "tsc -p ts",
     "build": "npm run ts && npm run pack"
   },
-  "author": "",
+  "author": "Sergio Morchón Poveda",
   "license": "ISC",
   "devDependencies": {
-    "babel-preset-es2015-rollup": "^1.1.1",
     "rollup": "^0.26.0",
-    "rollup-plugin-babel": "^2.4.0",
     "typescript": "^1.8.10"
   }
 }

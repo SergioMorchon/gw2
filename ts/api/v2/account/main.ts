@@ -63,13 +63,11 @@ const buildAccountFromRawAccount = (rawAccount: RawAccount) => {
     };
 };
 
-export const getAsync = (accessToken: string) => new Promise<Account>((resolve, reject) => {
-    xhr.getAsync<RawAccount>(buildUrl('account'), {
+export const getAsync = async (accessToken: string) => {
+    return buildAccountFromRawAccount(await xhr.getAsync<RawAccount>(buildUrl('account'), {
         'access_token': accessToken
-    }).then(rawAccount => {
-        resolve(buildAccountFromRawAccount(rawAccount));
-    }).catch(reject);
-});
+    }));
+};
 
 export default {
     getAsync
